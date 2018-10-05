@@ -1,0 +1,226 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
+    font-family: 'Roboto Slab', serif;
+    padding-bottom: 8rem;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+    opacity: 0.5;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: black;
+    color: white;
+}
+
+.mavan-logo-big {
+    width: 30rem;
+    margin-top: 5%;
+}
+
+.nav-container {
+    overflow: hidden;
+    height: 3rem;
+}
+
+.mavan-logo {
+    position: absolute;
+    width: 6rem;
+    left: calc(50% - 3rem);
+    top: 0;
+}
+
+.arrow-down {
+    position: absolute;
+    top: -6rem;
+    left: calc(50% - 6rem);
+    width: 0;
+    height: 0;
+    border-left: 6rem solid transparent;
+    border-right: 6rem solid transparent;
+    border-top: 6rem solid white;
+    transition: top .4s ease-in-out;
+
+}
+
+.mavan-logo {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.navbar.scrolled .arrow-down {
+    top: 0;
+
+}
+
+.navbar.scrolled .mavan-logo {
+    opacity: 1;
+
+}
+
+.nav-link {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#home {
+    background: url('img/home.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100VH;
+    width: 100%;
+}
+
+#columns {
+    column-width: 320px;
+    column-gap: 15px;
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto;
+}
+
+div#columns figure {
+    background: #fefefe;
+    transition: opacity .4s ease-in-out;
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+}
+
+div#columns figure img {
+    width: 100%;
+    height: auto;
+}
+
+div#columns figure figcaption {
+    font-size: .9rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+div#columns small {
+    font-size: 1rem;
+    float: right;
+    text-transform: uppercase;
+    color: #aaa;
+}
+
+div#columns small a {
+    color: #666;
+    text-decoration: none;
+    transition: .4s color;
+}
+
+div#columns:hover figure:not(:hover) {
+    opacity: 0.4;
+}
+
+@media screen and (max-width: 750px) {
+    #columns {
+        column-gap: 0px;
+    }
+
+    #columns figure {
+        width: 100%;
+    }
+}
+
+
+ /* Style the Image Used to Trigger the Modal */
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    padding:1rem;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
