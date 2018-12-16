@@ -97,6 +97,7 @@ a:hover {
 }
 
 div#columns figure {
+    position: relative;
     background: #fefefe;
     transition: opacity .4s ease-in-out;
     display: inline-block;
@@ -142,15 +143,16 @@ div#columns:hover figure:not(:hover) {
     }
 }
 
-
- /* Style the Image Used to Trigger the Modal */
+/* Style the Image Used to Trigger the Modal */
 #myImg {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-#myImg:hover {opacity: 0.7;}
+#myImg:hover {
+    opacity: 0.7;
+}
 
 /* The Modal (background) */
 .modal {
@@ -163,8 +165,8 @@ div#columns:hover figure:not(:hover) {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 
 /* Modal Content (Image) */
@@ -176,7 +178,7 @@ div#columns:hover figure:not(:hover) {
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
-#caption {
+.caption {
     margin: auto;
     display: block;
     width: 80%;
@@ -194,8 +196,12 @@ div#columns:hover figure:not(:hover) {
 }
 
 @keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
 }
 
 /* The Close Button */
@@ -207,7 +213,7 @@ div#columns:hover figure:not(:hover) {
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
-    padding:1rem;
+    padding: 1rem;
 }
 
 .close:hover,
@@ -217,8 +223,31 @@ div#columns:hover figure:not(:hover) {
     cursor: pointer;
 }
 
+.for-sale {
+    top: 5px;
+    left: 15px;
+    color: white;
+    position: absolute;
+
+}
+
+
+.for-sale a {
+    text-decoration: underline;
+
+}
+
+.for-sale a:hover {
+    font-style: italic;
+
+}
+
+H2{
+    font-size: 1em;
+}
+
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px) {
     .modal-content {
         width: 100%;
     }

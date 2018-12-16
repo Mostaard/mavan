@@ -1,4 +1,6 @@
 {% load static %}
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +64,17 @@
 </section>
 <section id="images">
     <div id="columns">
-        <figure >
+        {% for product in products %}
+            <figure>
+                {% if product.price > 0 %}
+                    <p class="for-sale"><i class="fas fa-shopping-cart"></i></p>
+                {% endif %}
+                <img class="dyn-img" src="{{ product.image.thumbs_url }}">
+                <p hidden class="name">{{ product.description }}</p>
+                <p hidden class="price">{{ product.price }}</p>
+            </figure>
+        {% endfor %}
+        <figure>
             <img class="image-click" src="{% static 'mavan/img/album/1_thumbs.jpg' %}">
         </figure>
         <figure>
@@ -78,7 +90,7 @@
             <img class="image-click" src="{% static 'mavan/img/album/7_thumbs.jpg' %}">
         </figure>
         <figure>
-            <img class="image-click"  src="{% static 'mavan/img/album/8_thumbs.jpg' %}">
+            <img class="image-click" src="{% static 'mavan/img/album/8_thumbs.jpg' %}">
         </figure>
         <figure>
             <img class="image-click" src="{% static 'mavan/img/album/9_thumbs.jpg' %}">
@@ -87,19 +99,23 @@
             <img class="image-click" src="{% static 'mavan/img/album/4_thumbs.jpg' %}">
         </figure>
         <figure>
-            <img class="image-click"  src="{% static 'mavan/img/album/11_thumbs.jpg' %}">
+            <img class="image-click" src="{% static 'mavan/img/album/11_thumbs.jpg' %}">
         </figure>
         <figure>
-            <img class="image-click"  src="{% static 'mavan/img/album/12_thumbs.jpg' %}">
+            <img class="image-click" src="{% static 'mavan/img/album/12_thumbs.jpg' %}">
         </figure>
         <figure>
             <img class="image-click" src="{% static 'mavan/img/album/13_thumbs.jpg' %}">
         </figure>
         <figure>
-            <img class="image-click"  src="{% static 'mavan/img/album/2_thumbs.jpg' %}">
+            <img class="image-click" src="{% static 'mavan/img/album/2_thumbs.jpg' %}">
         </figure>
     </div>
 </section>
+<h2 class="text-center">Items marked with <i class="fas fa-shopping-cart"></i> are for sale, just send me a <a
+        href="#contact">mail</a> to
+    purchase something, or to enquire about some other information :)
+</h2>
 
 <!-- Trigger the Modal -->
 
@@ -113,12 +129,15 @@
     <img class="modal-content" id="moImg">
 
     <!-- Modal Caption (Image Text) -->
-    <div id="caption"></div>
+    <div class="caption">
+        <p id="caption"></p>
+        <p id="price"></p>
+    </div>
 </div>
 
 <footer id="contact" class="footer">
     <div class="container">
-        <H1>mavanmaakt@gmail.com</H1>
+        <H1>info@mavan.be</H1>
     </div>
 </footer>
 

@@ -5,42 +5,41 @@ jQuery(document).ready(function ($) {
             let $nav = $("#mavan-nav");
             let $home = $("#home");
             $nav.toggleClass('scrolled', $(this).scrollTop() > $home.height());
-
         });
     });
 
 
     $('.image-click').click(function () {
+        $('#caption').html('');
+        $('#price').html('');
+
         let imageSrc = $(this).attr('src');
         imageSrc = imageSrc.replace('_thumbs', '');
         $('#moImg').attr('src', imageSrc);
         $('#moModal').show();
     });
 
-    $('.close').click(function () {
-        console.log('clickie');
-        $('#moModal').hide();
+    $('.dyn-img').click(function () {
+        let imageSrc = $(this).attr('src');
+        let url = imageSrc.split('.');
+        let urlString = url[2];
+        url[2] = urlString.substring(0, urlString.length - 1);
+        let newSrc = url.join('.');
+        $('#moImg').attr('src', newSrc);
+        $('#caption').html($(this).parent().find('.name')[0].innerHTML);
+        let price = $(this).parent().find('.price')[0].innerHTML;
+        if (price !== '' && price > 0) {
+            $('#price').html(`€ ${price}`);
+        } else {
+            $('#price').html('');
+        }
+        $('#moModal').show();
     });
 
-    // Get the modal
-    let modal = document.getElementById('myModal');
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-    let modalImg = document.getElementById("img01");
-    let captionText = document.getElementById("caption");
-    img.onclick = function () {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-    };
-
-// Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
+    $('.close').click(function () {
+        $('#moModal').hide();
+    });
 
 });
 
